@@ -20,9 +20,9 @@ function myFunction() {
 		method: 'POST', 
 		data: {
 			message: "New Contact Form Response",
-			First-Name: fname, 
-			Last-Name: lname,
-			Phone-Number: pnum, 
+			'First-Name': 	fname, 
+			'Last-Name': 	lname,
+			'Phone-Number': pnum, 
 		}
 	},
 	dataType: "json"

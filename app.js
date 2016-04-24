@@ -18,8 +18,14 @@ function myFunction() {
 	$.ajax({
 		url: "https://formspree.io/btmoore95@gmail.com",
 		method: 'POST', 
-		data: {message: "hello!"},
-		dataType: "json"
+		data: {
+			message: "New Contact Form Response",
+			First-Name: fname, 
+			Last-Name: lname,
+			Phone-Number: pnum, 
+		}
+	},
+	dataType: "json"
 	}).done(function(response) {
 		console.log(response); 
 	}); 

@@ -20,9 +20,14 @@ function myFunction() {
 		method: 'POST', 
 		data: {
 			message: "New Contact Form Response",
-			'First-Name': 	fname, 
-			'Last-Name': 	lname,
-			'Phone-Number': pnum, 
+			'First Name': 				fname, 
+			'Last Name': 				lname,
+			'Phone Number': 			pnum, 
+			'Parent Email Address': 	email, 
+			"Student's High School": 	hschool, 
+			"Student's Grade Level":	grade, 
+			"Subject of Email":			subject, 
+			"Questions / Comments":		other, 
 		},
 		dataType: "json"
 	}).done(function(response) {

@@ -23,9 +23,8 @@ function myFunction() {
 			'First-Name': 	fname, 
 			'Last-Name': 	lname,
 			'Phone-Number': pnum, 
-		}
-	},
-	dataType: "json"
+		},
+		dataType: "json"
 	}).done(function(response) {
 		console.log(response); 
 	}); 

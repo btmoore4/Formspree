@@ -7,7 +7,7 @@
 		<h1>Contact Me</h1>
 		<p class="info">Please Send me your Contact Information and I will get back to you</p> 
 		<br>
-		<form action="demo_form.asp">
+		<form action="demo_form.asp" id ="form1">
 			<label>First Name<span style="color: red">*</span> </label> 
 			<input class="in" type="text" id="fname"><br>
 			<label>Last Name<span style="color: red">*</span> </label> 
@@ -110,7 +110,7 @@ function myFunction() {
 	}).done(function(response) {
 		console.log(response); 
 	}); 
-	document.getElementById('fname').visibility = "hidden"; 
+	document.getElementById("form1").style.display = "none";
 
 }
 </script> 

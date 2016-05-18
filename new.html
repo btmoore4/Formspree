@@ -1,0 +1,118 @@
+<html>
+	<head>
+		<title>Contact Me</title> 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	</head> 
+	<body>
+		<h1>Contact Me</h1>
+		<p class="info">Please Send me your Contact Information and I will get back to you</p> 
+		<br>
+		<form action="demo_form.asp">
+			<label>First Name<span style="color: red">*</span> </label> 
+			<input class="in" type="text" id="fname"><br>
+			<label>Last Name<span style="color: red">*</span> </label> 
+			<input class="in" type="text" id="lname"><br>
+			<label>Phone Number<span style="color: red">*</span> </label> 
+			<input class="in" type="text" id="pnum"><br>
+			<label>Parent Email Address<span style="color: red">*</span> </label> 
+			<input class="in" type="text" id="email"><br>
+			<label>Student's High School </label> 
+			<input class="in" type="text" id="hschool"><br>
+			<label>Student's Current Grade Level </label>
+			<input class="in" type="text" id="grade"><br> 
+			<label>Subject of Email </label> 
+			<input class="in" type="text" id="subject"><br>
+			<label>Questions/Comments </label> 
+			<textarea rows="5" cols="47" class="in" type="text" id="other"></textarea><br>
+		</form>
+		<p>The (<span style="color: red">*</span>) indicates a required question</p> 
+		<input class="button1" type="button" onclick="myFunction();" value="Submit" id="button1"> 
+		<p id="p1"></p> 
+</html> 
+
+<style> 
+	p.info{
+		font-size: 20px; 
+		font-weight: bold;
+	}
+	input.button1{
+		margin-left: 150px; 
+		height: 40px; 
+	}
+	input.in {
+		width: 300px; 
+		height: 25px; 
+		font-size: 15px; 
+	}
+	body {
+		font-family: Georgia, serif;
+	}
+	form{
+		margin-left: 15%;
+		margin-right 25%;
+		width: 100%;
+	}
+	h1 {
+		text-align: center; 
+		text-decoration: underline;
+	}
+	p {
+		text-align: center; 
+	}
+	label {
+		font-size: 20px; 
+		width: 260px; 
+		display: block; 
+		vertical-align: middle;
+		float: left;
+		clear: left;
+		margin-bottom: 10px; 
+	}
+	input {
+		width: 100px; 
+		margin-bottom: 10px; 
+	}
+</style> 
+
+<script> 
+
+function myFunction() {
+	fname = document.getElementById('fname').value; 
+	lname = document.getElementById('lname').value;
+	pnum = document.getElementById('pnum').value;
+	email = document.getElementById('email').value;
+	hschool = document.getElementById('hschool').value;
+	grade = document.getElementById('grade').value;
+	subject = document.getElementById('subject').value; 
+	other = document.getElementById('other').value; 
+
+	if ((fname=="") || (lname=="") || (pnum=="") || (email=="")){
+		document.getElementById("p1").innerHTML = "Please fill in the required fields.";
+		return; 
+	}
+
+	document.getElementById("p1").innerHTML = "Thanks for Sending a Contact Form";
+	$.ajax({
+		url: "https://formspree.io/btmoore95@gmail.com",
+		method: 'POST', 
+		data: {
+			message: "New Contact Form Response",
+			'First Name': 				fname, 
+			'Last Name': 				lname,
+			'Phone Number': 			pnum, 
+			'Parent Email Address': 	email, 
+			"Student's High School": 	hschool, 
+			"Student's Grade Level":	grade, 
+			"Subject of Email":			subject, 
+			"Questions / Comments":		other, 
+		},
+		dataType: "json"
+	}).done(function(response) {
+		console.log(response); 
+	}); 
+}
+</script> 
+
+
+
+
